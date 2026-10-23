@@ -1,0 +1,233 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+
+:root {
+  --font1:
+    "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; /* Microsoft default  */
+  --font2: "Roboto", sans-serif;
+  --displayColor: rgba(0, 0, 0, 0.75);
+  --shadowColor: rgba(0, 0, 0, 0.2);
+  --letterSpacing: 0.7px;
+  --color1: #000000;
+  --color2: #333333;
+  --color3: #666666;
+  --color4: #999999;
+  --color5: #c0c0c0;
+  --color6: #e9f8f3;
+  --color7: #ffffff;
+  --copyColor1: #404040;
+  --copyColor2: #666666;
+  --copyColor3: #808080;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  font-family: var(--font1);
+  font-weight: normal;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  background-color: var(--color7);
+}
+
+.container {
+  min-height: 100dvh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  place-content: center;
+}
+
+h1 {
+  font-family: var(--font2);
+  font-size: 28px;
+  color: var(--color1);
+  padding: 20px 0;
+}
+
+.calculator-grid {
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  grid-template-columns: repeat(4, 76px);
+  grid-template-rows: minmax(100px, auto) repeat(5, 48px);
+  background-color: var(--color6);
+  gap: 3px;
+  border: 1px solid var(--shadowColor);
+  padding: 100px 16px 16px 16px;
+  border-radius: 10px;
+  box-shadow: 0 2px 16px 0 var(--shadowColor);
+}
+
+.calculator-grid > button {
+  background-color: #f3fbf9;
+  font-size: 20px;
+  border: 1px solid var(--shadowColor);
+  border-radius: 4px;
+  outline: none;
+  box-shadow: 0 2px 16px 0 var(--shadowColor);
+  cursor: pointer;
+}
+
+button[data-all-clear],
+button[data-delete] {
+  background-color: #ff8c00;
+  font-size: 14px;
+  color: var(--color1);
+}
+
+button[data-all-clear]:hover,
+button[data-delete]:hover {
+  background-color: #f0982c;
+}
+
+button[data-all-clear]:active,
+button[data-delete]:active {
+  background-color: #f79d2f;
+  color: var(--color2);
+}
+
+button[data-percentage] {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+button[data-operation],
+button[data-percentage] {
+  background-color: #fcf8f5;
+  color: var(--color3);
+}
+
+button[data-operation]:hover,
+button[data-percentage]:hover {
+  background-color: #faf4f1;
+  background-color: #d7dddb;
+}
+
+button[data-operation]:active,
+button[data-percentage]:active {
+  background-color: #faf3ee;
+  background-color: #e9eceb;
+  color: var(--color4);
+}
+
+button[data-number],
+button[data-negate] {
+  background-color: #ffffff;
+}
+
+button[data-number]:hover,
+button[data-negate]:hover {
+  background-color: #ecf7f4;
+}
+
+button[data-number]:active,
+button[data-negate]:active {
+  background-color: #fcf8f5;
+  background-color: #eef1f1;
+  color: var(--color2);
+}
+
+button[data-operation],
+button[data-equals] {
+  font-size: 24px;
+  font-weight: normal;
+}
+
+button[data-equals] {
+  background-color: #246b62;
+  color: var(--color7);
+  border: none;
+}
+
+button[data-equals]:hover {
+  background-color: #397970;
+}
+
+button[data-equals]:active {
+  background-color: #4e857d;
+}
+
+.output {
+  grid-column: 1 / -1;
+  background-color: var(--displayColor);
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  flex-direction: column;
+  min-height: 120px;
+  padding: 20px 20px;
+  margin-bottom: 10px;
+  word-wrap: break-word;
+  word-break: break-all;
+  border-radius: 6px;
+}
+
+.output .previous-operand {
+  color: var(--color5);
+  font-size: 24px;
+}
+
+.output .current-operand {
+  color: var(--color7);
+  font-size: 36px;
+}
+
+#error-message {
+  color: var(--color1);
+  padding-top: 50px;
+  text-align: center;
+}
+
+.copy {
+  color: var(--copyColor1);
+  font-size: 14px;
+  text-align: center;
+  letter-spacing: var(--letterSpacing);
+  padding: 20px 0;
+  margin-top: 50px;
+}
+
+.copy a {
+  color: var(--copyColor1);
+  text-decoration: underline dotted;
+  text-decoration-color: var(--copyColor2);
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 6px;
+}
+
+.copy a:hover {
+  color: var(--copyColor1);
+  text-decoration-color: var(--copyColor3);
+}
+
+@media only screen and (max-width: 390px) {
+  .calculator-grid {
+    grid-template-columns: repeat(4, 66px);
+    grid-template-rows: minmax(100px, auto) repeat(5, 48px);
+  }
+
+  .copy {
+    padding: 8px 0;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .copy a {
+    text-underline-offset: 4px;
+  }
+
+  .copy2 {
+    display: block;
+  }
+}
+
+@media only screen and (max-width: 340px) {
+  .calculator-grid {
+    grid-template-columns: repeat(4, 56px);
+    grid-template-rows: minmax(100px, auto) repeat(5, 48px);
+    gap: 2px;
+  }
+}
