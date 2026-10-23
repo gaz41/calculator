@@ -7,6 +7,7 @@ const allClearButton = document.querySelector("[data-all-clear]");
 const percentageButton = document.querySelector("[data-percentage]");
 const negateButton = document.querySelector("[data-negate]");
 const errorMsg = document.getElementById("error-message");
+const copyright = document.getElementById("copy");
 
 const previousOperandTextElement = document.querySelector(
   "[data-previous-operand]",
@@ -231,3 +232,9 @@ negateButton.addEventListener("click", () => {
 
 // Initialize display to show '0' on load
 updateDisplay();
+
+// Dynamically generate copyright information
+copyright.innerHTML =
+  "Copyright &copy; " +
+  new Date().getFullYear() +
+  ` <a href="https://www.gaz41.com">gaz41.com</a>. <span class="copy2">All Rights Reserved</span>`;
