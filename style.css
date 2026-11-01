@@ -44,7 +44,7 @@ h1 {
   font-family: var(--font2);
   font-size: 28px;
   color: var(--color1);
-  padding: 20px 0;
+  padding: 20px 0 14px 0;
 }
 
 .calculator-grid {
@@ -177,7 +177,7 @@ button[data-equals]:active {
 
 #error-message {
   color: var(--color1);
-  padding-top: 50px;
+  padding-top: 24px;
   text-align: center;
 }
 
